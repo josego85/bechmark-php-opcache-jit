@@ -1,0 +1,14 @@
+services:
+  php:
+    build: .
+    volumes:
+      - ./src:/var/www
+      - ./config/php/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
+    ports:
+      - "9000:9000"
+    networks:
+      - php_network
+
+networks:
+  php_network:
+    driver: bridge
